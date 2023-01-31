@@ -39,7 +39,7 @@ function playRound(playerChoice, computerChoice) {
         (playerChoice == 'Rock' && computerChoice == 'Scissors') ||
         (playerChoice == 'Paper' && computerChoice == 'Rock') ||
         (playerChoice == 'Scissors' && computerChoice == 'Paper')) {
-        result = `Computer chose ${computerChoice}. ${playerChoice} beats ${computerChoice}. You score! `;
+        result = `Computer chose ${computerChoice}. ${playerChoice} beats ${computerChoice}. You score!`;
         alert(result);
         playerScore++;
         return;
@@ -55,7 +55,7 @@ function playRound(playerChoice, computerChoice) {
 game();
 
 function game() {
-    for (; playerScore <= maxScore || playerScore <= maxScore;) {
+    for (; playerScore <= maxScore || computerScore <= maxScore;) {
         playerPlay();
         if (playerChoice == 'Exit') {
             alert('Exiting now!');
