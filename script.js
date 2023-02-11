@@ -4,14 +4,9 @@ let computerChoice;
 let playerScore = 0;
 let computerScore = 0;
 
-let maxScore = Number(prompt("Let's play Rock, Paper, Scissors! Do you want to play till 3 or 5 points?"));
+prompt("Let's play Rock, Paper, Scissors! First player to get 6 points wins the game.");
 
-/* if (maxScore = 3 || maxScore = 5) {
-    maxScore = (prompt("Please inform a valid number of rounds that you wanna play (3 or 5)."));
-    Number(maxScore);
-} */
-
-alert("If you don't want to play anymore, just type 'exit'.");
+alert("If you don't want to play anymore, just type 'exit'.")
 
 function playerPlay() {
     playerChoice = prompt("Enter your choice (rock, paper or scissors):");
@@ -52,10 +47,11 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
+
 game();
 
 function game() {
-    for (; playerScore <= maxScore || computerScore <= maxScore;) {
+    for (; playerScore <= 5 || computerScore <= 5;) {
         playerPlay();
         if (playerChoice == 'Exit') {
             alert('Exiting now!');
@@ -65,12 +61,12 @@ function game() {
         playRound(playerChoice, computerPlay());
         scoreboard = `Score: ${playerScore} x ${computerScore}.`;
         alert(scoreboard);
-        if (playerScore == maxScore) {
+        if (playerScore == 5) {
             scoreboard = 'Congratulations, you win!';
             alert(scoreboard);
             return;
         }
-        else if (computerScore == maxScore) {
+        else if (computerScore == 5) {
             scoreboard = 'Game over! Computer wins.';
             alert(scoreboard);
             return;
