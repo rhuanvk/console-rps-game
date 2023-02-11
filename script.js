@@ -3,14 +3,17 @@ let result;
 let computerChoice;
 let playerScore = 0;
 let computerScore = 0;
-
+let round = 1;
 alert(
    "Let's play Rock, Paper, Scissors! First player to get 5 points wins the game."
 );
 alert("If you don't want to play anymore, just type 'exit'.");
 
 function playerPlay() {
-   playerChoice = prompt("Enter your choice (rock, paper or scissors):");
+   playerChoice = prompt(
+      `Round ${round}
+      Enter your choice (rock, paper or scissors):`
+   );
    if (playerChoice === null) {
       alert("You canceled the prompt. Exiting now!");
       return playerPlay();
@@ -59,14 +62,17 @@ function playRound(playerChoice, computerChoice) {
 game();
 
 function game() {
-   for (; playerScore <= 5 || computerScore <= 5; ) {
+   for (; playerScore <= 5 && computerScore <= 5; ) {
       playerPlay();
-      if (playerChoice == "Exit") {
+      if (playerChoice == "exit") {
          alert("Exiting now!");
          return;
       }
-
-      playRound(playerChoice, computerPlay());
+      computerPlay();
+      playRound(playerChoice, computerChoice);
+      if (result !== "It's a tie. Let's play again!") {
+         round++;
+      }
       scoreboard = `Score: ${playerScore} x ${computerScore}.`;
       alert(scoreboard);
       if (playerScore == 5) {
