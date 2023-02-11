@@ -4,19 +4,20 @@ let computerChoice;
 let playerScore = 0;
 let computerScore = 0;
 let round = 1;
+
 alert(
    "Let's play Rock, Paper, Scissors! First player to get 5 points wins the game."
 );
-alert("If you don't want to play anymore, just type 'exit'.");
 
 function playerPlay() {
-   playerChoice = prompt(
+   let playerChoice = prompt(
       `Round ${round}
       Enter your choice (rock, paper or scissors):`
    );
+
    if (playerChoice === null) {
       alert("You canceled the prompt. Exiting now!");
-      return playerPlay();
+      return "exit";
    }
    playerChoice = playerChoice.trim().toLowerCase();
 
@@ -30,6 +31,8 @@ function playerPlay() {
       );
       return playerPlay();
    }
+
+   return playerChoice;
 }
 
 function computerPlay() {
@@ -63,9 +66,9 @@ game();
 
 function game() {
    for (; playerScore <= 5 && computerScore <= 5; ) {
-      playerPlay();
+      let playerChoice = playerPlay();
       if (playerChoice == "exit") {
-         alert("Exiting now!");
+         console.log("exit game");
          return;
       }
       computerPlay();
