@@ -4,7 +4,7 @@ let computerChoice;
 let playerScore = 0;
 let computerScore = 0;
 
-let maxScore = Number(prompt("Let's play Rock, Paper, Scissors! Do you want to play 3 or 5 rounds?"));
+let maxScore = Number(prompt("Let's play Rock, Paper, Scissors! Do you want to play till 3 or 5 points?"));
 
 /* if (maxScore = 3 || maxScore = 5) {
     maxScore = (prompt("Please inform a valid number of rounds that you wanna play (3 or 5)."));
@@ -14,7 +14,7 @@ let maxScore = Number(prompt("Let's play Rock, Paper, Scissors! Do you want to p
 alert("If you don't want to play anymore, just type 'exit'.");
 
 function playerPlay() {
-    playerChoice = prompt("Enter your choice:");
+    playerChoice = prompt("Enter your choice (rock, paper or scissors):");
     playerChoice = playerChoice[0].toUpperCase() + playerChoice.slice(1);
 }
 
