@@ -4,7 +4,7 @@ let computerChoice;
 let playerScore = 0;
 let computerScore = 0;
 
-prompt("Let's play Rock, Paper, Scissors! First player to get 6 points wins the game.");
+prompt("Let's play Rock, Paper, Scissors! First player to get 5 points wins the game.");
 
 alert("If you don't want to play anymore, just type 'exit'.")
 
