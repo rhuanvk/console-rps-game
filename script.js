@@ -1,4 +1,4 @@
-const choices = ["Rock", "Paper", "Scissors"];
+const choices = ["rock", "paper", "scissors"];
 let result;
 let computerChoice;
 let playerScore = 0;
@@ -7,12 +7,26 @@ let computerScore = 0;
 alert(
    "Let's play Rock, Paper, Scissors! First player to get 5 points wins the game."
 );
-//coment
 alert("If you don't want to play anymore, just type 'exit'.");
 
 function playerPlay() {
    playerChoice = prompt("Enter your choice (rock, paper or scissors):");
-   playerChoice = playerChoice[0].toUpperCase() + playerChoice.slice(1);
+   if (playerChoice === null) {
+      alert("You canceled the prompt. Exiting now!");
+      return playerPlay();
+   }
+   playerChoice = playerChoice.trim().toLowerCase();
+
+   if (playerChoice == "") {
+      alert("You didn't enter anything. Please try again.");
+      return playerPlay();
+   }
+   if (!choices.includes(playerChoice)) {
+      alert(
+         "Invalid choice. Please enter either 'rock', 'paper', or 'scissors'."
+      );
+      return playerPlay();
+   }
 }
 
 function computerPlay() {
@@ -21,20 +35,14 @@ function computerPlay() {
 }
 
 function playRound(playerChoice, computerChoice) {
-   if (!choices.includes(playerChoice)) {
-      alert("[Error!] Please type something valid (rock, paper or scissors).");
-      console.log(playerChoice);
-      return;
-   }
-
-   if (playerChoice == computerChoice) {
+   if (playerChoice === computerChoice) {
       result = "It's a tie. Let's play again!";
       alert(result);
       return;
    } else if (
-      (playerChoice == "Rock" && computerChoice == "Scissors") ||
-      (playerChoice == "Paper" && computerChoice == "Rock") ||
-      (playerChoice == "Scissors" && computerChoice == "Paper")
+      (playerChoice == "rock" && computerChoice == "scissors") ||
+      (playerChoice == "paper" && computerChoice == "rock") ||
+      (playerChoice == "scissors" && computerChoice == "paper")
    ) {
       result = `Computer chose ${computerChoice}. ${playerChoice} beats ${computerChoice}. You score!`;
       alert(result);
